@@ -1,6 +1,6 @@
 ## 프로젝트 실행 방법
 
-1. Docker로 DB 준비 (MySQL + 마이그레이션)
+1. Docker로 DB 세팅 (MySQL + 마이그레이션)
 
 ```bash
 docker compose up -d --build mysql
@@ -61,7 +61,7 @@ npm run test:setup
 ### 참고:
 
 ERD, 기능 흐름도는 mermaid 문법으로 작성했습니다.
-GitHub에서는 기본 지원하지만, 코드에디터에서 보려면 Mermaid Preview 플러그인을 설치해야 합니다.
+Github 외 다른 환경에서 확인 시 Mermaid Preview 플러그인 설치가 필요할 수 있습니다.
 
 ```mermaid
 erDiagram
@@ -142,3 +142,7 @@ D[가능 여부 1차 검사] --> L[잠금 획득] --> R[가능 여부 재검사]
 - 테스트 전략: E2E + 동시성 테스트. 대량 데이터 준비는 `npm run test:setup`. DB/migrator 선행 후 테스트 실행
 - 문서화: Swagger에 API 명세 작성 `http://localhost:3000/api-docs`
 - 비밀키 보호: Ansible encrypt를 사용해 비밀키 암호화 후 공유 가능. 단 과제 제출용으로 .env 파일 첨부
+
+## Comment
+
+- 리뷰 감사합니다. 문의사항이 있다면 편하게 연락 주시기 바랍니다.
