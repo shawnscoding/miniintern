@@ -1,0 +1,45 @@
+{
+  "name": "miniintern",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "ts-node ./scripts/build.ts",
+    "clean-install": "rm -rf ./node_modules && rm -r package-lock.json && npm i",
+    "dev": "NODE_ENV=development ts-node ./src/server.ts",
+    "dev:hot": "NODE_ENV=development nodemon",
+    "test:setup": "NODE_ENV=test npx jest setup/setup.test.ts",
+    "test:e2e": "NODE_ENV=test npx jest tests/e2e --runInBand",
+    "test:concurrency": "NODE_ENV=test npx jest tests/concurrency --runInBand",
+    "test:all": "NODE_ENV=test npx jest tests --runInBand",
+    "test:all:watch": "NODE_ENV=test npx jest tests --watch --runInBand"
+  },
+  "keywords": [],
+  "author": "",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "reflect-metadata": "^0.2.2",
+    "mysql2": "^3.11.3",
+    "typeorm": "^0.3.25"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.13.3",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.2.0",
+    "@types/supertest": "^6.0.3",
+    "@types/swagger-ui-express": "^4.1.8",
+    "jest": "^30.0.5",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4",
+    "swagger-ui-express": "^5.0.1",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}

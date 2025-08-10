@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS `application`;
+DROP TABLE IF EXISTS `mclass`;
+DROP TABLE IF EXISTS `user`;

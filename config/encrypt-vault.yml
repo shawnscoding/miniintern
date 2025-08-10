@@ -1,0 +1,15 @@
+- name: Encrypt environment files
+  hosts: localhost
+  vars:
+    env_files:
+      - development
+      - test
+  tasks:
+    - name: Encrypt .env files
+      ansible.builtin.command: >
+        ansible-vault encrypt
+        env/.env.{{ item }}
+        --vault-password-file={{ vault_password_file }}
+        --output vault/.env.{{ item }}.vault
+      loop: "{{ env_files }}"
+      ignore_errors: no

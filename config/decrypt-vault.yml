@@ -1,0 +1,21 @@
+- name: Decrypt environment files
+  hosts: localhost
+  vars:
+    env_files:
+      - development
+      - test
+    # 우선순위: -e vault_password_file=... > $ANSIBLE_VAULT_PASSWORD_FILE > $HOME/.ansible/ansible_password
+    vault_password_file: "{{ vault_password_file  }}"
+  tasks:
+    - name: Decrypt .env files
+      ansible.builtin.command:
+        argv:
+          - ansible-vault
+          - decrypt
+          - "vault/.env.{{ item }}.vault"
+          - --vault-password-file
+          - "{{ vault_password_file }}"
+          - --output
+          - "env/.env.{{ item }}"
+      loop: "{{ env_files }}"
+      ignore_errors: no
